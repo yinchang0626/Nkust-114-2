@@ -1,0 +1,109 @@
+{
+  "template": "app",
+  "imports": {
+    "Volo.Abp.LeptonXLiteTheme": {
+      "version": "5.1.0",
+      "isInstalled": true,
+      "creationTime": "03/19/2026 01:59:36 +00:00"
+    },
+    "Volo.Abp.Account": {
+      "version": "10.1.0",
+      "isInstalled": true,
+      "creationTime": "03/19/2026 01:59:36 +00:00"
+    },
+    "Volo.Abp.OpenIddict": {
+      "version": "10.1.0",
+      "isInstalled": true,
+      "creationTime": "03/19/2026 01:59:36 +00:00"
+    },
+    "Volo.Abp.Identity": {
+      "version": "10.1.0",
+      "isInstalled": true,
+      "creationTime": "03/19/2026 01:59:36 +00:00"
+    },
+    "Volo.Abp.TenantManagement": {
+      "version": "10.1.0",
+      "isInstalled": true,
+      "creationTime": "03/19/2026 01:59:36 +00:00"
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "10.1.0",
+      "isInstalled": true,
+      "creationTime": "03/19/2026 01:59:36 +00:00"
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "10.1.0",
+      "isInstalled": true,
+      "creationTime": "03/19/2026 01:59:36 +00:00"
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "10.1.0",
+      "isInstalled": true,
+      "creationTime": "03/19/2026 01:59:36 +00:00"
+    }
+  },
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "Further.Weigh.Application": {
+      "path": "src/Further.Weigh.Application/Further.Weigh.Application.abppkg",
+      "folder": "src"
+    },
+    "Further.Weigh.Application.Tests": {
+      "path": "test/Further.Weigh.Application.Tests/Further.Weigh.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "Further.Weigh.Domain.Shared": {
+      "path": "src/Further.Weigh.Domain.Shared/Further.Weigh.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "Further.Weigh.Application.Contracts": {
+      "path": "src/Further.Weigh.Application.Contracts/Further.Weigh.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "Further.Weigh.HttpApi": {
+      "path": "src/Further.Weigh.HttpApi/Further.Weigh.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "Further.Weigh.HttpApi.Client": {
+      "path": "src/Further.Weigh.HttpApi.Client/Further.Weigh.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "Further.Weigh.EntityFrameworkCore.Tests": {
+      "path": "test/Further.Weigh.EntityFrameworkCore.Tests/Further.Weigh.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "Further.Weigh.EntityFrameworkCore": {
+      "path": "src/Further.Weigh.EntityFrameworkCore/Further.Weigh.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "Further.Weigh.TestBase": {
+      "path": "test/Further.Weigh.TestBase/Further.Weigh.TestBase.abppkg",
+      "folder": "test"
+    },
+    "Further.Weigh.Domain.Tests": {
+      "path": "test/Further.Weigh.Domain.Tests/Further.Weigh.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "Further.Weigh.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/Further.Weigh.HttpApi.Client.ConsoleTestApp/Further.Weigh.HttpApi.Client.ConsoleTestApp.abppkg",
+      "folder": "test"
+    },
+    "Further.Weigh.DbMigrator": {
+      "path": "src/Further.Weigh.DbMigrator/Further.Weigh.DbMigrator.abppkg",
+      "folder": "src"
+    },
+    "Further.Weigh.HttpApi.Host": {
+      "path": "src/Further.Weigh.HttpApi.Host/Further.Weigh.HttpApi.Host.abppkg",
+      "folder": "src"
+    },
+    "Further.Weigh.Domain": {
+      "path": "src/Further.Weigh.Domain/Further.Weigh.Domain.abppkg",
+      "folder": "src"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<Solution>
+    <Configurations>
+        <Platform Name="Any CPU" />
+    </Configurations>
+    <Folder Name="/src/">
+        <Project Path="src/Further.Weigh.Domain/Further.Weigh.Domain.csproj" />
+        <Project Path="src/Further.Weigh.Application/Further.Weigh.Application.csproj" />
+        <Project Path="src/Further.Weigh.EntityFrameworkCore/Further.Weigh.EntityFrameworkCore.csproj" />
+        <Project Path="src/Further.Weigh.Domain.Shared/Further.Weigh.Domain.Shared.csproj" />
+        <Project Path="src/Further.Weigh.Application.Contracts/Further.Weigh.Application.Contracts.csproj" />
+        <Project Path="src/Further.Weigh.HttpApi/Further.Weigh.HttpApi.csproj" />
+        <Project Path="src/Further.Weigh.HttpApi.Client/Further.Weigh.HttpApi.Client.csproj" />
+        <Project Path="src/Further.Weigh.DbMigrator/Further.Weigh.DbMigrator.csproj" />
+        <Project Path="src/Further.Weigh.HttpApi.Host/Further.Weigh.HttpApi.Host.csproj" />
+    </Folder>
+    <Folder Name="/test/">
+        <Project Path="test/Further.Weigh.Application.Tests/Further.Weigh.Application.Tests.csproj" />
+        <Project Path="test/Further.Weigh.EntityFrameworkCore.Tests/Further.Weigh.EntityFrameworkCore.Tests.csproj" />
+        <Project Path="test/Further.Weigh.TestBase/Further.Weigh.TestBase.csproj" />
+        <Project Path="test/Further.Weigh.Domain.Tests/Further.Weigh.Domain.Tests.csproj" />
+        <Project Path="test/Further.Weigh.HttpApi.Client.ConsoleTestApp/Further.Weigh.HttpApi.Client.ConsoleTestApp.csproj" />
+    </Folder>
+</Solution>
