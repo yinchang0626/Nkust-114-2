@@ -42,9 +42,13 @@ public class WeighEntityFrameworkCoreModule : AbpModule
     {
         context.Services.AddAbpDbContext<WeighDbContext>(options =>
         {
-                /* Remove "includeAllEntities: true" to create
-                 * default repositories only for aggregate roots */
-            options.AddDefaultRepositories(includeAllEntities: true);
+            // Add default repositories for aggregate roots only (DDD best practice)
+            // Do NOT use includeAllEntities: true - it bypasses aggregate root boundaries
+            options.AddDefaultRepositories();
+
+            // Register custom repository implementations
+            options.AddRepository<Further.WeighGov.S03.TransportTask.TransportContracts.TransportContract,
+                WeighGov.S03.TransportTask.TransportContracts.EfCoreTransportContractRepository>();
         });
 
         if (AbpStudioAnalyzeHelper.IsInAnalyzeMode)
