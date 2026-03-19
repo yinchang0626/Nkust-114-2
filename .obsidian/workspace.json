@@ -185,6 +185,7 @@
   },
   "active": "bf41fbb6b0856783",
   "lastOpenFiles": [
+    "src/Further.Weigh.DbMigrator/Data/TransportContractDataSeedContributor.cs",
     "src/Further.Weigh.EntityFrameworkCore/WeighGov/S03/TransportTask/TransportContracts/EfCoreTransportContractRepository.cs",
     "src/Further.Weigh.DbMigrator/Data/Class1.cs",
     "src/Further.Weigh.DbMigrator/Data",
@@ -195,7 +196,6 @@
     "src/Further.Weigh.EntityFrameworkCore/WeighGov/S03/TransportTask",
     "src/Further.Weigh.EntityFrameworkCore/WeighGov/S03",
     "src/Further.Weigh.EntityFrameworkCore/WeighGov",
-    "src/Further.Weigh.Domain/WeighGov/S03/TransportTask/TransportContracts/ITransportContractRepository.cs",
     "docs/WeighGovS03TransportTask-分析實作計劃.md",
     "docs/WeighGovS03TransportTask-重要類別對照表.md"
   ]

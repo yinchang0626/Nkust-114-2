@@ -117,6 +117,22 @@ public class TransportContract : FullAuditedAggregateRoot<Guid>
         return specification.IsSatisfiedBy(this);
     }
 
+    /// <summary>更新備註</summary>
+    public void SetRemarks(string? remarks)
+    {
+        Remarks = remarks?.Length > TransportContractConsts.MaxRemarksLength
+            ? remarks[..TransportContractConsts.MaxRemarksLength]
+            : remarks;
+    }
+
+    /// <summary>更新附件 URL</summary>
+    public void SetAttachmentUrl(string? url)
+    {
+        AttachmentUrl = url?.Length > TransportContractConsts.MaxAttachmentUrlLength
+            ? url[..TransportContractConsts.MaxAttachmentUrlLength]
+            : url;
+    }
+
     private void ValidateInvariants(string code, string name, Guid vendorId, DateTime validFrom, DateTime validTo)
     {
         if (string.IsNullOrWhiteSpace(code))
