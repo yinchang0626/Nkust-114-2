@@ -13,7 +13,7 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Further.Weigh.Migrations
 {
     [DbContext(typeof(WeighDbContext))]
-    [Migration("20260319034530_0.0.1-1")]
+    [Migration("20260409035249_0.0.1-1")]
     partial class _0011
     {
         /// <inheritdoc />
@@ -22,7 +22,7 @@ namespace Further.Weigh.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.SqlServer)
-                .HasAnnotation("ProductVersion", "10.0.2")
+                .HasAnnotation("ProductVersion", "10.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
