@@ -117,6 +117,30 @@ public class TransportContract : FullAuditedAggregateRoot<Guid>
         return specification.IsSatisfiedBy(this);
     }
 
+    /// <summary>更新基本資訊（僅限 Draft 狀態）</summary>
+    public void UpdateBasicInfo(
+        string name,
+        Guid vendorId,
+        string vendorName,
+        ContractType contractType,
+        DateTime validFrom,
+        DateTime validTo)
+    {
+        if (Status != ContractStatus.Draft)
+        {
+            throw new BusinessException(TransportContractErrorCodes.InvalidStatusTransition);
+        }
+
+        Name = name;
+        VendorId = vendorId;
+        VendorName = vendorName;
+        ContractType = contractType;
+        ValidFrom = validFrom;
+        ValidTo = validTo;
+
+        ValidateInvariants(Code, name, vendorId, validFrom, validTo);
+    }
+
     /// <summary>更新備註</summary>
     public void SetRemarks(string? remarks)
     {
