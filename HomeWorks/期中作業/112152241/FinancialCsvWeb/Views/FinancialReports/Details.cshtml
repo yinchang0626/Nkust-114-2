@@ -1,0 +1,52 @@
+﻿@model FinancialCsvWeb.Models.FinancialReport
+
+@{
+    ViewData["Title"] = "財報詳細資料";
+}
+
+<h2>@Model.CompanyName 財報詳細資料</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>年度 / 季別</th>
+        <td>@Model.Year 年 第 @Model.Quarter 季</td>
+    </tr>
+    <tr>
+        <th>公司代號</th>
+        <td>@Model.CompanyCode</td>
+    </tr>
+    <tr>
+        <th>公司名稱</th>
+        <td>@Model.CompanyName</td>
+    </tr>
+    <tr>
+        <th>資產總計</th>
+        <td>@Model.TotalAssets?.ToString("N0")</td>
+    </tr>
+    <tr>
+        <th>負債總計</th>
+        <td>@Model.TotalLiabilities?.ToString("N0")</td>
+    </tr>
+    <tr>
+        <th>權益總計</th>
+        <td>@Model.TotalEquity?.ToString("N0")</td>
+    </tr>
+    <tr>
+        <th>負債比</th>
+        <td>@Model.DebtRatio?.ToString("N2")%</td>
+    </tr>
+    <tr>
+        <th>權益比</th>
+        <td>@Model.EquityRatio?.ToString("N2")%</td>
+    </tr>
+    <tr>
+        <th>每股參考淨值</th>
+        <td>@Model.NetWorthPerShare?.ToString("N2")</td>
+    </tr>
+    <tr>
+        <th>匯入時間</th>
+        <td>@Model.ImportedAt</td>
+    </tr>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">返回列表</a>

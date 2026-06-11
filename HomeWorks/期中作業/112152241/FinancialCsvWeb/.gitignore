@@ -1,0 +1,16 @@
+﻿.vs/
+bin/
+obj/
+
+*.user
+*.suo
+*.rsuser
+
+*.db
+*.mdf
+*.ldf
+
+appsettings.Development.json
+
+TestResults/
+.vscode/
