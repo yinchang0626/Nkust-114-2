@@ -1,0 +1,15 @@
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\bin\Debug\net10.0\NPA_TMA1_JSON.json
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\bin\Debug\net10.0\TrafficAccidentAnalysis.exe
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\bin\Debug\net10.0\TrafficAccidentAnalysis.deps.json
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\bin\Debug\net10.0\TrafficAccidentAnalysis.runtimeconfig.json
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\bin\Debug\net10.0\TrafficAccidentAnalysis.dll
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\bin\Debug\net10.0\TrafficAccidentAnalysis.pdb
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\obj\Debug\net10.0\TrafficAccidentAnalysis.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\obj\Debug\net10.0\TrafficAccidentAnalysis.AssemblyInfoInputs.cache
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\obj\Debug\net10.0\TrafficAccidentAnalysis.AssemblyInfo.cs
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\obj\Debug\net10.0\TrafficAccidentAnalysis.csproj.CoreCompileInputs.cache
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\obj\Debug\net10.0\TrafficAccidentAnalysis.dll
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\obj\Debug\net10.0\refint\TrafficAccidentAnalysis.dll
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\obj\Debug\net10.0\TrafficAccidentAnalysis.pdb
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\obj\Debug\net10.0\TrafficAccidentAnalysis.genruntimeconfig.cache
+C:\Users\Du\source\repos\TrafficAccidentAnalysis\TrafficAccidentAnalysis\obj\Debug\net10.0\ref\TrafficAccidentAnalysis.dll

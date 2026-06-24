@@ -1,0 +1,34 @@
+﻿@model List<MyWebApp.Models.DataItem>
+
+<h2>📊 年度統計資料</h2>
+
+<input class="form-control mb-3" type="text" id="search" placeholder="搜尋年度..." />
+
+@if (Model == null || !Model.Any())
+{
+    <p>沒有資料</p>
+}
+else
+{
+    <table id="dataTable" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>年度</th>
+                <th>需求數</th>
+                <th>錄取人數</th>
+                <th>錄取率</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.年度</td>
+                    <td>@item.核配員額需求數_統計</td>
+                    <td>@item.實際甄選錄取人數_統計</td>
+                    <td>@item.役男錄取率_百分比 %</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

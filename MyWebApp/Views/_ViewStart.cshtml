@@ -1,0 +1,73 @@
+﻿@model List<MyWebApp.Models.DataItem>
+
+<h2>📊 年度資料折線圖</h2>
+
+<div style="margin-bottom:10px;">
+    <label>起始年度：</label>
+    <select id="startYear"></select>
+
+    <label>結束年度：</label>
+    <select id="endYear"></select>
+
+    <button onclick="drawChart()">更新圖表</button>
+</div>
+
+<canvas id="myChart" width="800" height="400"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const rawData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
+
+    function getYear(str) {
+        return parseInt(str.replace("年", ""));
+    }
+
+    const years = [...new Set(rawData.map(x => x.年度))]
+        .sort((a, b) => getYear(a) - getYear(b));
+
+    const startSel = document.getElementById("startYear");
+    const endSel = document.getElementById("endYear");
+
+    years.forEach(y => {
+        startSel.innerHTML += `<option value="${y}">${y}</option>`;
+        endSel.innerHTML += `<option value="${y}">${y}</option>`;
+    });
+
+    startSel.value = years[0];
+    endSel.value = years[years.length - 1];
+
+    let chart;
+
+    function drawChart() {
+        const start = startSel.value;
+        const end = endSel.value;
+
+        const filtered = rawData.filter(x => {
+            const y = getYear(x.年度);
+            return y >= getYear(start) && y <= getYear(end);
+        });
+
+        const labels = filtered.map(x => x.年度);
+
+        const demand = filtered.map(x => Number(x.核配員額需求數_統計));
+        const hire = filtered.map(x => Number(x.實際甄選錄取人數_統計));
+        const rate = filtered.map(x => Number(x.役男錄取率_百分比));
+
+        if (chart) chart.destroy();
+
+        chart = new Chart(document.getElementById("myChart"), {
+            type: 'line',
+            data: {
+                labels,
+                datasets: [
+                    { label: "需求數", data: demand, borderColor: "blue" },
+                    { label: "錄取人數", data: hire, borderColor: "green" },
+                    { label: "錄取率(%)", data: rate, borderColor: "red" }
+                ]
+            }
+        });
+    }
+
+    drawChart();
+</script>

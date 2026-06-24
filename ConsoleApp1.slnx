@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/方案項目/">
+    <File Path="ConsoleApp1/電信設備手機輻射值審驗合格型號數量統計.json" />
+  </Folder>
+  <Project Path="ConsoleApp1/ConsoleApp1.csproj" />
+</Solution>

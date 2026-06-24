@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>臺北市 YouBike 2.0 即時查詢系統</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft JhengHei", Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+    header {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  padding: 40px 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  text-align: center;  /* ⭐重點：全部置中 */
+}
+
+header h1 {
+  margin: 8px 0;
+  font-size: 30px;
+}
+
+.student-info {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+header p {
+  margin-top: 16px;
+  line-height: 1.6;
+}
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .panel {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      margin-bottom: 20px;
+    }
+    .controls {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr auto auto;
+      gap: 12px;
+      align-items: end;
+    }
+    .control-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      font-size: 15px;
+    }
+    button {
+      cursor: pointer;
+      border: none;
+      font-weight: 700;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    button:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+    }
+    .btn-secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .stat-card {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    }
+    .stat-card h3 {
+      margin: 0;
+      font-size: 14px;
+      color: #6b7280;
+      font-weight: 700;
+    }
+    .stat-card p {
+      margin: 10px 0 0 0;
+      font-size: 28px;
+      font-weight: 800;
+    }
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .meta .tag {
+      background: #dbeafe;
+      color: #1d4ed8;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .station-card {
+      background: white;
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      border-left: 8px solid #94a3b8;
+    }
+    .station-card.good { border-left-color: #16a34a; }
+    .station-card.warn { border-left-color: #f59e0b; }
+    .station-card.bad  { border-left-color: #dc2626; }
+    .station-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+    .station-card .sub {
+      color: #6b7280;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .station-card .numbers {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .pill {
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-block;
+    }
+    .pill.bike { background: #dcfce7; color: #166534; }
+    .pill.space { background: #fee2e2; color: #991b1b; }
+    .pill.total { background: #e0e7ff; color: #3730a3; }
+    .pill.stop { background: #fef3c7; color: #92400e; }
+    .address {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #374151;
+      min-height: 44px;
+    }
+    .empty {
+      text-align: center;
+      padding: 40px 20px;
+      color: #6b7280;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    }
+    footer {
+      text-align: center;
+      color: #6b7280;
+      font-size: 14px;
+      padding: 10px 0 30px 0;
+      line-height: 1.8;
+    }
+    @media (max-width: 1100px) {
+      .controls { grid-template-columns: 1fr 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .controls, .stats, .grid { grid-template-columns: 1fr; }
+      header h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>多媒體系統作業</h1>
+  <h1>臺北市 YouBike 2.0 即時查詢系統</h1>
+  <h2 class="student-info">
+    組員：C111152310 侯右承、C111152324 許嘉成、C111152243 林永浚、C111152329 姜泓廷、C111152346 林敬哲
+  </h2>
+  <p>
+    使用政府開放資料製作的互動介面。可依站名、地址、行政區搜尋，
+    並依可借車數、可還車位、總停車格進行排序。
+  </p>
+</header>
+
+  <div class="container">
+    <div class="panel">
+      <div class="controls">
+        <div class="control-group">
+          <label for="keyword">搜尋站點 / 地址</label>
+          <input id="keyword" type="text" placeholder="例如：台北車站、大安、信義路">
+        </div>
+        <div class="control-group">
+          <label for="area">行政區</label>
+          <select id="area">
+            <option value="">全部行政區</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="sortBy">排序方式</label>
+          <select id="sortBy">
+            <option value="available_rent_bikes">可借車數量（高到低）</option>
+            <option value="available_return_bikes">可還車位（高到低）</option>
+            <option value="quantity">總停車格（高到低）</option>
+            <option value="sna">站名（A 到 Z）</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>&nbsp;</label>
+          <button class="btn-primary" id="refreshBtn">重新載入資料</button>
+        </div>
+        <div class="control-group">
+          <label>&nbsp;</label>
+          <button class="btn-secondary" id="resetBtn">清除條件</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <h3>站點總數</h3>
+        <p id="stationCount">-</p>
+      </div>
+      <div class="stat-card">
+        <h3>可借車總數</h3>
+        <p id="rentCount">-</p>
+      </div>
+      <div class="stat-card">
+        <h3>可還車位總數</h3>
+        <p id="returnCount">-</p>
+      </div>
+      <div class="stat-card">
+        <h3>最後更新時間</h3>
+        <p id="lastUpdate" style="font-size:18px;">-</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="meta">
+        <div class="tag" id="resultInfo">讀取資料中...</div>
+        <div class="tag">資料來源：臺北市政府開放資料</div>
+      </div>
+      <div id="stationGrid" class="grid"></div>
+      <div id="emptyState" class="empty" style="display:none;">找不到符合條件的站點資料。</div>
+    </div>
+
+    <footer>
+      期中作業：政府開放資料互動介面<br>
+      資料集：YouBike2.0 臺北市公共自行車即時資訊
+    </footer>
+  </div>
+
+  <script>
+    const API_URL = "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json";
+
+    let allData = [];
+    let filteredData = [];
+
+    const keywordEl = document.getElementById("keyword");
+    const areaEl = document.getElementById("area");
+    const sortByEl = document.getElementById("sortBy");
+    const refreshBtn = document.getElementById("refreshBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const gridEl = document.getElementById("stationGrid");
+    const emptyEl = document.getElementById("emptyState");
+    const resultInfoEl = document.getElementById("resultInfo");
+
+    function numberValue(value) {
+      const n = Number(value);
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function stationLevel(station) {
+      const bikes = numberValue(station.available_rent_bikes);
+      if (station.act === "0" || station.act === 0) return "bad";
+      if (bikes >= 10) return "good";
+      if (bikes >= 3) return "warn";
+      return "bad";
+    }
+
+    function cleanStationName(name) {
+      if (!name) return "";
+      return String(name).replace("YouBike2.0_", "").trim();
+    }
+
+    function renderAreaOptions(data) {
+      const areas = [...new Set(data.map(item => item.sarea).filter(Boolean))].sort((a, b) => a.localeCompare(b, "zh-Hant"));
+      areaEl.innerHTML = '<option value="">全部行政區</option>';
+      areas.forEach(area => {
+        const option = document.createElement("option");
+        option.value = area;
+        option.textContent = area;
+        areaEl.appendChild(option);
+      });
+    }
+
+    function updateStats(data) {
+      const totalStations = data.length;
+      const totalRent = data.reduce((sum, item) => sum + numberValue(item.available_rent_bikes), 0);
+      const totalReturn = data.reduce((sum, item) => sum + numberValue(item.available_return_bikes), 0);
+      const latestTime = data.length > 0
+        ? data.map(item => item.mday || item.updateTime || "").sort().reverse()[0]
+        : "-";
+
+      document.getElementById("stationCount").textContent = totalStations.toLocaleString();
+      document.getElementById("rentCount").textContent = totalRent.toLocaleString();
+      document.getElementById("returnCount").textContent = totalReturn.toLocaleString();
+      document.getElementById("lastUpdate").textContent = latestTime || "-";
+    }
+
+    function applyFilters() {
+      const keyword = keywordEl.value.trim().toLowerCase();
+      const area = areaEl.value;
+      const sortBy = sortByEl.value;
+
+      filteredData = allData.filter(item => {
+        const stationName = cleanStationName(item.sna).toLowerCase();
+        const address = String(item.ar || "").toLowerCase();
+        const district = String(item.sarea || "").toLowerCase();
+
+        const keywordMatch = !keyword ||
+          stationName.includes(keyword) ||
+          address.includes(keyword) ||
+          district.includes(keyword);
+
+        const areaMatch = !area || item.sarea === area;
+
+        return keywordMatch && areaMatch;
+      });
+
+      filteredData.sort((a, b) => {
+        if (sortBy === "sna") {
+          return cleanStationName(a.sna).localeCompare(cleanStationName(b.sna), "zh-Hant");
+        }
+        return numberValue(b[sortBy]) - numberValue(a[sortBy]);
+      });
+
+      renderCards(filteredData);
+      updateStats(filteredData);
+      resultInfoEl.textContent = `目前顯示 ${filteredData.length} 筆站點資料`;
+    }
+
+    function renderCards(data) {
+      gridEl.innerHTML = "";
+
+      if (!data.length) {
+        emptyEl.style.display = "block";
+        return;
+      }
+
+      emptyEl.style.display = "none";
+
+      data.forEach(station => {
+        const card = document.createElement("div");
+        card.className = `station-card ${stationLevel(station)}`;
+
+        const isStopped = station.act === "0" || station.act === 0;
+
+        card.innerHTML = `
+          <h3>${cleanStationName(station.sna)}</h3>
+          <div class="sub">行政區：${station.sarea || "未提供"}　|　站點代號：${station.sno || "-"}</div>
+          <div class="numbers">
+            <span class="pill bike">可借車：${numberValue(station.available_rent_bikes)}</span>
+            <span class="pill space">可還車位：${numberValue(station.available_return_bikes)}</span>
+            <span class="pill total">總停車格：${numberValue(station.quantity)}</span>
+            ${isStopped ? '<span class="pill stop">站點暫停營運</span>' : ''}
+          </div>
+          <div class="address">${station.ar || "未提供地址"}</div>
+        `;
+
+        gridEl.appendChild(card);
+      });
+    }
+
+    async function loadData() {
+      resultInfoEl.textContent = "讀取資料中...";
+      gridEl.innerHTML = "";
+      emptyEl.style.display = "none";
+
+      try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error("資料讀取失敗");
+        const data = await response.json();
+
+        allData = Array.isArray(data) ? data : [];
+        renderAreaOptions(allData);
+        applyFilters();
+      } catch (error) {
+        resultInfoEl.textContent = "資料讀取失敗，請稍後再試";
+        emptyEl.style.display = "block";
+        emptyEl.textContent = "目前無法連線到開放資料來源，請檢查網路或稍後重試。";
+        console.error(error);
+      }
+    }
+
+    keywordEl.addEventListener("input", applyFilters);
+    areaEl.addEventListener("change", applyFilters);
+    sortByEl.addEventListener("change", applyFilters);
+    refreshBtn.addEventListener("click", loadData);
+    resetBtn.addEventListener("click", () => {
+      keywordEl.value = "";
+      areaEl.value = "";
+      sortByEl.value = "available_rent_bikes";
+      applyFilters();
+    });
+
+    loadData();
+  </script>
+</body>
+</html>
