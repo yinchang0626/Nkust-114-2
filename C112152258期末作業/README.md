@@ -1,0 +1,402 @@
+🐣 Please follow me for new updates https://x.com/camenduru <br />
+🔥 Please join our discord server https://discord.gg/k5BwmmvJJU <br />
+🥳 Please become my sponsor https://github.com/sponsors/camenduru <br />
+
+### 🍞 Tost UI
+
+### ☁︎ Cloud Service: [https://ui.tost.ai](https://ui.tost.ai) <br />
+
+![Image](https://github.com/user-attachments/assets/594d9c1c-d652-4c5c-9ace-b4d7c08668ba) <br />
+![Image](https://github.com/user-attachments/assets/33bace4e-a0df-463d-96f9-4393d3ee85ea)
+
+### 🍞 Local and 🍇 RunPod Templates
+
+| Local | Pod | Serverless | Info 
+| --- | --- | --- | --- |
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/TostUI#-tostui---trellis-2-unreal-engine-compatible) | | | TostUI - Trellis 2 (Unreal Engine Compatible)
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/TostUI#-tostui---song-generation-v15-beta) | | | TostUI - Song Generation (v1.5-beta - Min 24GB VRAM)
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/TostUI#-tostui---song-generation-base-new) | | | TostUI - Song Generation (base-new - Min 14GB VRAM)
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/TostUI#-tostui---flux2-dev-8bit) | | | TostUI - Flux.2 [dev] (8bit)
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/TostUI#-tostui---qwen-image-edit-2511-8bit) | [![pod](https://github.com/user-attachments/assets/b1afe627-76ad-42fd-baaa-59be2259b224)](https://console.runpod.io/deploy?template=8225iajw8i&ref=iqi9iy8y) | | TostUI - Qwen Image Edit 2511 (8bit)
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/TostUI#-tostui---genfocus-deblurnet-8bit) | | | TostUI - GenFocus DeblurNet (8bit)
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/TostUI#-tostui---wan-22-first-last-frame-8bit) | | | TostUI - Wan 2.2 First Last Frame (8bit)
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/tostui?tab=readme-ov-file#-tostui---trellis-2) | [![pod](https://github.com/user-attachments/assets/b1afe627-76ad-42fd-baaa-59be2259b224)](https://console.runpod.io/deploy?template=oqkubhl5l9&ref=iqi9iy8y) | | TostUI - Trellis 2
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/tostui?tab=readme-ov-file#-tostui---tost-synth-v10-z-image-turbo-seedvr2) | | | TostUI - Tost Synth v1.0 (4K)
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/tostui?tab=readme-ov-file#-tostui---seedvr2) | | | TostUI - SeedVR2
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/tostui?tab=readme-ov-file#-tostui---z-image-turbo-with-lora) | | | TostUI - Z-Image-Turbo With LoRA
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/tostui?tab=readme-ov-file#-tostui---z-image-turbo-4bit) | | | TostUI - Z-Image-Turbo (4bit)
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/tostui?tab=readme-ov-file#-tostui---qwen-image-edit-2509-with-loras-8bit) | [![pod](https://github.com/user-attachments/assets/b1afe627-76ad-42fd-baaa-59be2259b224)](https://console.runpod.io/deploy?template=zbpfw59j23&ref=iqi9iy8y) | [![serverless](https://github.com/user-attachments/assets/99241dcd-7d87-4140-a779-d775bbbd674c)](https://console.runpod.io/deploy?template=kav9oydwre&ref=iqi9iy8y) | TostUI - Qwen Image Edit 2509 with LoRAs (8bit)
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/tostui?tab=readme-ov-file#-tostui---z-image-turbo-with-upscaler-8bit) | [![pod](https://github.com/user-attachments/assets/b1afe627-76ad-42fd-baaa-59be2259b224)](https://console.runpod.io/deploy?template=avc1aiksjc&ref=iqi9iy8y) | [![serverless](https://github.com/user-attachments/assets/99241dcd-7d87-4140-a779-d775bbbd674c)](https://console.runpod.io/deploy?template=xw7bgxhlhg&ref=iqi9iy8y) | TostUI - Z-Image-Turbo with Upscaler (8bit)
+[![local](https://github.com/user-attachments/assets/2b9a6ec2-e6cd-4415-9553-6c7bfb5e7722)](https://github.com/camenduru/tostui?tab=readme-ov-file#-tostui---wan-22-image-to-video-8bit) | [![pod](https://github.com/user-attachments/assets/b1afe627-76ad-42fd-baaa-59be2259b224)](https://console.runpod.io/deploy?template=rg49nppdgd&ref=iqi9iy8y) | [![serverless](https://github.com/user-attachments/assets/99241dcd-7d87-4140-a779-d775bbbd674c)](https://console.runpod.io/deploy?template=bu7is6ath4&ref=iqi9iy8y) | TostUI - Wan 2.2 Image to Video (8bit)
+
+`All services were tested with an RTX 3090, RTX 4090, and RTX 5090.`
+
+#### 🍞 TostUI - Trellis 2 (Unreal Engine Compatible)
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostengine-trellis2; docker rm tostengine-trellis2; docker pull camenduru/tostengine-trellis2
+    ```
+
+3.  **Run the container**
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostengine-trellis2 camenduru/tostengine-trellis2
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - Song Generation (v1.5-beta)
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-songgeneration-v1.5; docker rm tostui-songgeneration-v1.5; docker pull camenduru/tostui-songgeneration:v1.5
+    ```
+
+3.  **Run the container**
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-songgeneration-v1.5 camenduru/tostui-songgeneration:v1.5
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - Song Generation (base-new)
+
+https://github.com/user-attachments/assets/40f9fc76-db11-423b-b2f2-1f39e01302d9
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-songgeneration; docker rm tostui-songgeneration; docker pull camenduru/tostui-songgeneration
+    ```
+
+3.  **Run the container**
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-songgeneration camenduru/tostui-songgeneration
+    ```
+
+    *Requires NVIDIA GPU (Min 14GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - Flux.2 [dev] (8bit)
+
+![Screenshot 2025-12-30 184354](https://github.com/user-attachments/assets/b0b93cb1-0898-49af-a493-02734d1ba166)
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-flux-2-dev; docker rm tostui-flux-2-dev; docker pull camenduru/tostui-flux-2-dev
+    ```
+
+3.  **Run the container**
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-flux-2-dev camenduru/tostui-flux-2-dev
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - Qwen Image Edit 2511 (8bit)
+
+https://github.com/user-attachments/assets/a5c76b73-60a0-4234-a944-ac3242725f9e
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-qwen-image-edit-2511; docker rm tostui-qwen-image-edit-2511; docker pull camenduru/tostui-qwen-image-edit-2511
+    ```
+
+3.  **Run the container**
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-qwen-image-edit-2511 camenduru/tostui-qwen-image-edit-2511
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - GenFocus DeblurNet (8bit)
+
+![Screenshot 2025-12-21 085935](https://github.com/user-attachments/assets/8a75fb6b-ba28-4844-a69c-cb6e3c84a3cf)
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-genfocus; docker rm tostui-genfocus; docker pull camenduru/tostui-genfocus
+    ```
+
+3.  **Run the container**
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-genfocus camenduru/tostui-genfocus
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - Wan 2.2 First Last Frame (8bit)
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-wan2-2-flf-8bit; docker rm tostui-wan2-2-flf-8bit; docker pull camenduru/tostui-wan2-2-flf-8bit
+    ```
+
+3.  **Run the container**
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-wan2-2-flf-8bit camenduru/tostui-wan2-2-flf-8bit
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - Trellis 2
+
+![Image](https://github.com/user-attachments/assets/33bc9dca-dd23-4c67-a40d-41cf8e19fc71)
+
+Video: https://x.com/camenduru/status/2001478162996191317
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-trellis2; docker rm tostui-trellis2; docker pull camenduru/tostui-trellis2
+    ```
+
+3.  **Run the container**\
+    Open Command Prompt / PowerShell and paste:
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-trellis2 camenduru/tostui-trellis2
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - Tost Synth v1.0 (4K) (Z-Image-Turbo SeedVR2)
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-z-image-turbo-seedvr2; docker rm tostui-z-image-turbo-seedvr2; docker pull camenduru/tostui-z-image-turbo-seedvr2
+    ```
+
+3.  **Run the container**\
+    Open Command Prompt / PowerShell and paste:
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-z-image-turbo-seedvr2 camenduru/tostui-z-image-turbo-seedvr2
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - SeedVR2
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-seedvr2; docker rm tostui-seedvr2; docker pull camenduru/tostui-seedvr2
+    ```
+
+3.  **Run the container**\
+    Open Command Prompt / PowerShell and paste:
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-seedvr2 camenduru/tostui-seedvr2
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - Z-Image-Turbo With LoRA
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-z-image-turbo; docker rm tostui-z-image-turbo; docker pull camenduru/tostui-z-image-turbo
+    ```
+
+3.  **Run the container**\
+    Open Command Prompt / PowerShell and paste:
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-z-image-turbo camenduru/tostui-z-image-turbo
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - Z-Image-Turbo (4bit)
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-z-image-turbo-4bit; docker rm tostui-z-image-turbo-4bit; docker pull camenduru/tostui-z-image-turbo-4bit
+    ```
+
+3.  **Run the container**\
+    Open Command Prompt / PowerShell and paste:
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-z-image-turbo-4bit camenduru/tostui-z-image-turbo-4bit
+    ```
+
+    *Requires NVIDIA GPU (Min 6GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - Qwen Image Edit 2509 with LoRAs (8bit)
+`Convert to Anime` `Convert to Reality T1` `Convert to Reality T2`
+`Convert to Chibi`\
+`Convert to Ahegao` `Convert to Color` `Convert to Kiss`
+`Edit With Prompt`\
+`Generate With Prompt` `Enhance Image Quality` `Next Scene`
+`Multiple Angles`\
+`Blend Image` `Relight Image` `Apply Texture` `Extract Outfit`
+`Face Swap`
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-qwen-image-edit-2509; docker rm tostui-qwen-image-edit-2509; docker pull camenduru/tostui-qwen-image-edit-2509
+    ```
+
+3.  **Run the container**
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-qwen-image-edit-2509 camenduru/tostui-qwen-image-edit-2509
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - Z-Image-Turbo with Upscaler (8bit)
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-z-image-turbo-8bit; docker rm tostui-z-image-turbo-8bit; docker pull camenduru/tostui-z-image-turbo-8bit
+    ```
+
+3.  **Run the container**
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-z-image-turbo-8bit camenduru/tostui-z-image-turbo-8bit
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
+
+#### 🍞 TostUI - Wan 2.2 Image to Video (8bit)
+
+1.  **Install Docker**\
+    [Download Docker Desktop (Windows AMD64)](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+    and run it.
+
+2.  **Update the container (optional)**
+
+    ``` bash
+    docker stop tostui-wan2-2-i2v-8bit; docker rm tostui-wan2-2-i2v-8bit; docker pull camenduru/tostui-wan2-2-i2v-8bit
+    ```
+
+3.  **Run the container**
+
+    ``` bash
+    docker run --gpus all -p 3000:3000 --name tostui-wan2-2-i2v-8bit camenduru/tostui-wan2-2-i2v-8bit
+    ```
+
+    *Requires NVIDIA GPU (Min 24GB VRAM)*
+
+4.  **Open app**\
+    Go to: http://localhost:3000
