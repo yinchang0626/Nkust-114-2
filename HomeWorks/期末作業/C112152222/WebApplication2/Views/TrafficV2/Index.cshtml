@@ -1,0 +1,703 @@
+﻿@model IEnumerable<WebApplication2.Models.TrafficEvent>
+
+@{
+    Layout = null;
+
+    var selectedRegion = ViewBag.SelectedRegion as string ?? "全部";
+    var selectedEventType = ViewBag.SelectedEventType as string ?? "全部";
+    var keyword = ViewBag.Keyword as string ?? "";
+    var searchMessage = ViewBag.SearchMessage as string ?? "";
+    var isSearchResult = ViewBag.IsSearchResult as bool? ?? false;
+    var totalCount = ViewBag.TotalCount ?? 0;
+}
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>全台即時交通路況查詢系統｜第二版</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: #1f2937;
+            background: #f4f8fc;
+            font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+        }
+
+        .page-shell {
+            min-height: 100vh;
+            padding: 30px 0 50px;
+            background: radial-gradient(circle at 85% 10%, rgba(56, 189, 248, 0.18), transparent 28%), linear-gradient(180deg, #eef7ff 0%, #f8fafc 45%, #f4f8fc 100%);
+        }
+
+        .traffic-v2-header {
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(290px, 0.75fr);
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 28px;
+            padding: 34px;
+            border-radius: 28px;
+            color: #ffffff;
+            background: radial-gradient(circle at 85% 18%, rgba(56, 189, 248, 0.28), transparent 30%), linear-gradient(135deg, #082642 0%, #123f6d 55%, #0b2f55 100%);
+            box-shadow: 0 18px 40px rgba(15, 47, 86, 0.2);
+            overflow: hidden;
+        }
+
+        .live-status {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin: 0 0 12px;
+            color: #a5f3fc;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+
+        .live-status span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+            animation: pulse 1.8s infinite;
+        }
+
+        .traffic-v2-header h1 {
+            margin: 0 0 14px;
+            font-size: clamp(2rem, 3vw, 3.2rem);
+            font-weight: 800;
+        }
+
+        .traffic-v2-header h1 strong {
+            color: #67e8f9;
+        }
+
+        .header-description {
+            max-width: 620px;
+            margin: 0;
+            color: #dbeafe;
+            font-size: 1.03rem;
+            line-height: 1.85;
+        }
+
+        .header-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .event-count {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            padding: 10px 14px;
+            border: 1px solid rgba(186, 230, 253, 0.25);
+            border-radius: 14px;
+            background: rgba(15, 23, 42, 0.3);
+        }
+
+        .event-count strong {
+            color: #67e8f9;
+            font-size: 1.5rem;
+        }
+
+        .event-count span {
+            color: #e0f2fe;
+            font-size: 0.9rem;
+        }
+
+        .all-traffic-button {
+            display: inline-block;
+            padding: 11px 16px;
+            border-radius: 12px;
+            color: #082642;
+            background: #ffffff;
+            font-weight: 800;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .all-traffic-button:hover {
+            color: #082642;
+            background: #a5f3fc;
+            transform: translateY(-3px);
+        }
+
+        .map-card {
+            padding: 24px;
+            border: 1px solid rgba(3, 105, 161, 0.3);
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(7, 33, 66, 0.8) 0%, rgba(6, 78, 141, 0.7) 100%);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .map-card-title {
+            margin: 0 0 16px;
+            color: #e0f2fe;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .taiwan-map-container {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto 24px;
+            position: relative;
+            aspect-ratio: 3 / 4;
+            background: transparent;
+        }
+
+        .taiwan-map-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        }
+
+        .taiwan-map-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            background: transparent;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+        }
+
+        .map-hotspot {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border: 1px solid transparent;
+            color: transparent;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            background: transparent;
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+
+        .map-hotspot:hover,
+        .map-hotspot:focus {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.03);
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .map-hotspot.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3),
+                        0 0 16px rgba(255, 255, 255, 0.25),
+                        inset 0 0 8px rgba(255, 255, 255, 0.15);
+        }
+
+        .map-hotspot-label {
+            position: absolute;
+            bottom: -32px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            background: rgba(15, 23, 42, 0.95);
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .map-hotspot:hover .map-hotspot-label {
+            opacity: 1;
+        }
+
+        .hotspot-north {
+            top: 7%;
+            left: 24%;
+            width: 54%;
+            height: 24%;
+        }
+
+        .hotspot-central {
+            top: 32%;
+            left: 18%;
+            width: 47%;
+            height: 26%;
+        }
+
+        .hotspot-south {
+            top: 60%;
+            left: 14%;
+            width: 43%;
+            height: 30%;
+        }
+
+        .hotspot-east {
+            top: 25%;
+            left: 56%;
+            width: 29%;
+            height: 62%;
+        }
+
+        .search-section {
+            margin-top: 0;
+            padding: 16px 0;
+            border-radius: 0;
+            background: transparent;
+            border: none;
+        }
+
+        .current-region-display {
+            margin-bottom: 12px;
+            font-size: 0.92rem;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .current-region-display span {
+            color: #0369a1;
+            font-weight: 800;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .search-input-group {
+            flex: 1;
+            min-width: 140px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .search-input-group input {
+            flex: 1;
+            padding: 9px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: 0.2s ease;
+            background: #ffffff;
+            color: #0f172a;
+        }
+
+        .search-input-group input::placeholder {
+            color: #94a3b8;
+        }
+
+        .search-input-group input:focus {
+            outline: none;
+            border-color: #0369a1;
+            box-shadow: 0 0 0 3px rgba(3, 105, 161, 0.1);
+        }
+
+        .search-button,
+        .clear-search-button {
+            padding: 9px 14px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .search-button {
+            background: #0369a1;
+            color: white;
+        }
+
+        .search-button:hover {
+            background: #0284c7;
+            transform: translateY(-1px);
+        }
+
+        .clear-search-button {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .clear-search-button:hover:not(:disabled) {
+            background: #d1d5db;
+        }
+
+        .clear-search-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .result-title {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: end;
+            gap: 12px;
+            margin: 24px 0 12px;
+        }
+
+        .result-title h2 {
+            margin: 0;
+            color: #123f6d;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .result-title p {
+            margin: 0;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .search-message {
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: #dbeafe;
+            border-left: 4px solid #0284c7;
+            color: #0369a1;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.92rem;
+        }
+
+        .search-message::before {
+            content: "ℹ";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            background: #0284c7;
+            color: white;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .no-data {
+            padding: 40px 0;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .card-event {
+            border: 0;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: 0.2s ease;
+            background: #ffffff;
+        }
+
+        .card-event:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+        }
+
+        .card-body {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #123f6d;
+        }
+
+        .badge-region {
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .card-event p {
+            font-size: 0.92rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-footer {
+            background: #f8fafc;
+            padding: 10px 16px;
+            font-size: 0.82rem;
+            color: #94a3b8;
+        }
+
+        @@keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(74, 222, 128, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+            }
+        }
+
+        @@media (max-width: 900px) {
+            .traffic-v2-header {
+                grid-template-columns: 1fr;
+                padding: 26px;
+            }
+
+            .map-card {
+                max-width: 100%;
+                width: 100%;
+                margin: auto;
+            }
+
+            .taiwan-map-container {
+                max-width: 100%;
+                margin: 0 auto 16px;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .search-input-group {
+                min-width: auto;
+                flex-direction: column;
+            }
+
+            .search-input-group input {
+                width: 100%;
+            }
+
+            .search-button,
+            .clear-search-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page-shell">
+        <div class="container">
+
+            <section class="traffic-v2-header">
+                <div>
+                    <p class="live-status">
+                        <span></span>
+                        即時資料更新中
+                    </p>
+
+                    <h1>
+                        @(selectedRegion == "全部" ? "全台即時交通路況" : $"{selectedRegion}即時交通路況")
+                    </h1>
+
+                    <p class="header-description">
+                        顯示事故、壅塞、施工與交通障礙等最新道路事件。
+                        系統依照發生時間排序，最近發生的事件會優先顯示在最上方。
+                    </p>
+
+                    <div class="header-bottom">
+                        <div class="event-count">
+                            <strong>@totalCount</strong>
+                            <span>目前顯示事件數</span>
+                        </div>
+
+                        <a class="all-traffic-button"
+                           href="@Url.Action("Index", "TrafficV2", new { region = "全部", eventType = "全部" })">
+                            查看全部路況
+                        </a>
+                    </div>
+                </div>
+
+                <div class="map-card">
+                    <p class="map-card-title">點選地區查看近期案件</p>
+
+                    <div class="taiwan-map-container">
+                        <div class="taiwan-map-wrapper">
+                            <img src="~/images/taiwan.png" 
+                                 alt="台灣北部、中部、南部、東部交通路況地圖" 
+                                 class="taiwan-map-img" />
+
+                            <a class="map-hotspot hotspot-north @(selectedRegion == "北部" ? "active" : "")"
+                               href="@Url.Action("Index", "TrafficV2", new { region = "北部", eventType = "全部", keyword = "" })"
+                               aria-label="查看北部路況"
+                               title="查看北部路況">
+                                <span class="map-hotspot-label">北部</span>
+                            </a>
+
+                            <a class="map-hotspot hotspot-central @(selectedRegion == "中部" ? "active" : "")"
+                               href="@Url.Action("Index", "TrafficV2", new { region = "中部", eventType = "全部", keyword = "" })"
+                               aria-label="查看中部路況"
+                               title="查看中部路況">
+                                <span class="map-hotspot-label">中部</span>
+                            </a>
+
+                            <a class="map-hotspot hotspot-south @(selectedRegion == "南部" ? "active" : "")"
+                               href="@Url.Action("Index", "TrafficV2", new { region = "南部", eventType = "全部", keyword = "" })"
+                               aria-label="查看南部路況"
+                               title="查看南部路況">
+                                <span class="map-hotspot-label">南部</span>
+                            </a>
+
+                            <a class="map-hotspot hotspot-east @(selectedRegion == "東部" ? "active" : "")"
+                               href="@Url.Action("Index", "TrafficV2", new { region = "東部", eventType = "全部", keyword = "" })"
+                               aria-label="查看東部路況"
+                               title="查看東部路況">
+                                <span class="map-hotspot-label">東部</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="search-section">
+                        <div class="current-region-display">
+                            目前查看：<span>@selectedRegion</span>
+                        </div>
+
+                        <form class="search-form" method="get" action="@Url.Action("Index", "TrafficV2")">
+                            <input type="hidden" name="region" value="@selectedRegion" />
+                            <input type="hidden" name="eventType" value="@selectedEventType" />
+
+                            <div class="search-input-group">
+                                <input type="text" 
+                                       name="keyword" 
+                                       value="@keyword" 
+                                       placeholder="請輸入區域或地點，例如：后里區" 
+                                       autocomplete="off" />
+                                <button type="submit" class="search-button">搜尋</button>
+                                @if (!string.IsNullOrEmpty(keyword))
+                                {
+                                    <button type="button" class="clear-search-button" id="clearSearchBtn">清除搜尋</button>
+                                }
+                                else
+                                {
+                                    <button type="button" class="clear-search-button" disabled>清除搜尋</button>
+                                }
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            @if (!string.IsNullOrEmpty((string)ViewBag.ErrorMessage))
+            {
+                <div class="alert alert-warning" role="alert">
+                    @ViewBag.ErrorMessage
+                </div>
+            }
+
+            <section class="result-title">
+                <div>
+                    @{
+                        string resultTitle = "";
+                        if (isSearchResult)
+                        {
+                            resultTitle = $"{selectedRegion}／{keyword} 相關道路事件";
+                        }
+                        else if (!string.IsNullOrEmpty(keyword))
+                        {
+                            // 搜尋無結果回退
+                            resultTitle = selectedRegion == "全部" ? "最新全台道路事件" : $"{selectedRegion}最新道路事件";
+                        }
+                        else
+                        {
+                            // 未搜尋
+                            resultTitle = selectedRegion == "全部" ? "最新全台道路事件" : $"{selectedRegion}最新道路事件";
+                        }
+                    }
+                    <h2>@resultTitle</h2>
+                    <p>最近發生的事件會排在最前面。</p>
+                </div>
+            </section>
+
+            @if (!string.IsNullOrEmpty(searchMessage))
+            {
+                <div class="search-message">
+                    @searchMessage
+                </div>
+            }
+
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+                @if (!Model.Any())
+                {
+                    <div class="col-12">
+                        <div class="no-data bg-white rounded shadow-sm">
+                            <p class="mb-0">查無符合條件的事件。</p>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    foreach (var ev in Model)
+                    {
+                        <div class="col">
+                            <div class="card card-event h-100 shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <h5 class="card-title mb-0">@ev.EventType</h5>
+                                        <span class="badge bg-info text-dark badge-region">@ev.Region</span>
+                                    </div>
+
+                                    <p class="mb-1"><strong>道路：</strong>@ev.RoadName</p>
+                                    <p class="mb-1"><strong>方向：</strong>@ev.Direction</p>
+                                    <p class="mb-1"><strong>地點：</strong>@ev.Location</p>
+                                    <p class="mb-1">
+                                        <strong>發生時間：</strong>
+                                        @(ev.OccurredAt == DateTime.MinValue ? "未提供" : ev.OccurredAt.ToString("yyyy/MM/dd HH:mm"))
+                                    </p>
+
+                                    <hr />
+
+                                    <p class="mb-1"><strong>說明：</strong>@ev.Description</p>
+                                    <p class="mb-0"><strong>生活建議：</strong>@ev.Advice</p>
+                                </div>
+
+                                <div class="card-footer small text-muted">
+                                    事件 ID：@ev.Id
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 清除搜尋按鈕功能
+        const clearSearchBtn = document.getElementById('clearSearchBtn');
+        if (clearSearchBtn) {
+            clearSearchBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const form = this.closest('form');
+                const keywordInput = form.querySelector('input[name="keyword"]');
+                keywordInput.value = '';
+                form.submit();
+            });
+        }
+    </script>
+</body>
+</html>
