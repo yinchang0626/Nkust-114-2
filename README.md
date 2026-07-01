@@ -42,23 +42,23 @@
 
 | 學號 | PR | 狀態 | 作品名稱 | 連結 |
 |---|---|---|---|---|
-| C111152302 | [#44](https://github.com/yinchang0626/Nkust-114-2/pull/44) | 已合併 | 期末作業連結 | [作品](https://github.com/zamzamder/Nkust-114-2-homework) |
-| C111152321 | [#52](https://github.com/yinchang0626/Nkust-114-2/pull/52) | 已合併 | ETF Analysis Final | [作品](https://github.com/samlin-0426/ETF_analysis_source_code) |
-| C111152324 | [#34](https://github.com/yinchang0626/Nkust-114-2/pull/34) | 已合併 | Final Project | [作品](https://github.com/C111152310/Final-project) |
-| C111152325 | [#50](https://github.com/yinchang0626/Nkust-114-2/pull/50) | 已合併 | 期末作業 | [作品](https://github.com/binghao9312/ASD) |
-| C111152326 | [#48](https://github.com/yinchang0626/Nkust-114-2/pull/48) | 已合併 | 期末作業 | [作品](https://github.com/dexianz/NKUST114-2FINAL) |
-| C111152328 | [#54](https://github.com/yinchang0626/Nkust-114-2/pull/54) | 已合併 | Hockey Ball | [作品](https://github.com/linj80912/hockey-ball) |
-| C111152342 | [#47](https://github.com/yinchang0626/Nkust-114-2/pull/47) | 已合併 | 期末作業 | [作品](https://github.com/ThomasPan77/C111152342) |
-| C111183254 | [#35](https://github.com/yinchang0626/Nkust-114-2/pull/35) | 已合併 | RE-Weigh | [作品](https://github.com/56cooldude65-rgb/RE-Weigh) |
-| C112152126 | [#30](https://github.com/yinchang0626/Nkust-114-2/pull/30) | 已合併 | 期末作業 | [作品](https://github.com/Chen120793/chen_homework) |
-| C112152222 | [#53](https://github.com/yinchang0626/Nkust-114-2/pull/53) | 已合併 | Traffic WebApplication2 | [作品](HomeWorks/期末作業/C112152222/WebApplication2) |
-| C112152232 | [#29](https://github.com/yinchang0626/Nkust-114-2/pull/29) | 已合併 | 期末作業 | [作品](https://github.com/Lu227821/114_2finalhomework) |
-| C112152254 | [#33](https://github.com/yinchang0626/Nkust-114-2/pull/33) | 已合併 | 交通事故分析 | [作品](HomeWorks/期末作業/C112152254) |
-| C112152256 | [#31](https://github.com/yinchang0626/Nkust-114-2/pull/31) | 已合併 | KaohsiungTrafficApi | [作品](HomeWorks/期末作業/C112152256/KaohsiungTrafficApi) |
-| C112152258 | [#51](https://github.com/yinchang0626/Nkust-114-2/pull/51) | 已合併 | 期末作業未完成擴充 | [作品](HomeWorks/期末作業/C112152258/C112152258期末作業) |
-| C112152315 | [#39](https://github.com/yinchang0626/Nkust-114-2/pull/39) | 已合併 | NKUST Plus | [作品](https://github.com/wangwesley1125/NKUST_plus) |
-| C112152325 | [#55](https://github.com/yinchang0626/Nkust-114-2/pull/55) | 已合併 | LiveStream Song Rater Final | [作品](https://github.com/ShigureJishin/NKUST_114-2_Noname) |
-| C112152329 | [#42](https://github.com/yinchang0626/Nkust-114-2/pull/42) | 已合併 | Nkust-114-2-me | [作品](https://github.com/louie3s/Nkust-114-2-me) |
-| C112152332 | [#43](https://github.com/yinchang0626/Nkust-114-2/pull/43) | 已合併 | Final Assignment | [作品](https://github.com/sam66644197/final_assignment) |
-| C112152334 | [#38](https://github.com/yinchang0626/Nkust-114-2/pull/38) | 已合併 | JobSearchSystem | [作品](https://github.com/han-n-n/JobSearchSystem) |
-| C112181152 | [#45](https://github.com/yinchang0626/Nkust-114-2/pull/45) | 已合併 | A-NEW-TAIWANSTOCK-WEB-ABP | [作品](https://github.com/slince0823/A-NEW-TAIWANSTOCK-WEB-ABP) |
+| C111152302 | [#44](https://github.com/yinchang0626/Nkust-114-2/pull/44) | 已合併 | Project1：ABP 分層式網站範本與應用骨架 | [作品](https://github.com/zamzamder/Nkust-114-2-homework) |
+| C111152321 | [#52](https://github.com/yinchang0626/Nkust-114-2/pull/52) | 已合併 | 台灣 ETF 投資分析：ETF 報酬與資料分析 | [作品](https://github.com/samlin-0426/ETF_analysis_source_code_final) |
+| C111152324 | [#34](https://github.com/yinchang0626/Nkust-114-2/pull/34) | 已合併 | Final Project：小組期末專題網站 | [作品](https://github.com/C111152310/Final-project) |
+| C111152325 | [#50](https://github.com/yinchang0626/Nkust-114-2/pull/50) | 已合併 | ASD 行李貼紙管理 App：QR Code 掃描、床號與行李資料管理 | [作品](https://github.com/binghao9312/ASD) |
+| C111152326 | [#48](https://github.com/yinchang0626/Nkust-114-2/pull/48) | 已合併 | 智慧個人理財與記帳系統：支出記錄、分析與 CSV 匯出 | [作品](https://github.com/dexianz/NKUST114-2FINAL) |
+| C111152328 | [#54](https://github.com/yinchang0626/Nkust-114-2/pull/54) | 已合併 | Hockey Ball：WebSocket 即時雙人桌上曲棍球遊戲 | [作品](https://github.com/linj80912/hockey-ball) |
+| C111152342 | [#47](https://github.com/yinchang0626/Nkust-114-2/pull/47) | 已合併 | 高雄市電動車公共充電站智慧分析面板 | [作品](https://github.com/ThomasPan77/C111152342_FINAL) |
+| C111183254 | [#35](https://github.com/yinchang0626/Nkust-114-2/pull/35) | 已合併 | RE-Weigh-Steam：ABP 分層式 Further.Steam 系統 | [作品](https://github.com/56cooldude65-rgb/RE-Weigh-Steam.git) |
+| C112152126 | [#30](https://github.com/yinchang0626/Nkust-114-2/pull/30) | 已合併 | WebApplication1：上市公司每月營收資料查詢網站 | [作品](https://github.com/Chen120793/chen_homework) |
+| C112152222 | [#53](https://github.com/yinchang0626/Nkust-114-2/pull/53) | 已合併 | 全台即時交通路況查詢系統：警廣路況資料篩選與卡片式呈現 | [作品](HomeWorks/期末作業/C112152222/WebApplication2) |
+| C112152232 | [#29](https://github.com/yinchang0626/Nkust-114-2/pull/29) | 已合併 | 綠色商店資料庫查詢系統：店家資料、營收與紀錄查詢 | [作品](https://github.com/Lu227821/114_2finalhomework) |
+| C112152254 | [#33](https://github.com/yinchang0626/Nkust-114-2/pull/33) | 已合併 | 台灣 A1 類重大交通事故數據分析：肇因與車種統計 | [作品](HomeWorks/期末作業/C112152254) |
+| C112152256 | [#31](https://github.com/yinchang0626/Nkust-114-2/pull/31) | 已合併 | KaohsiungTrafficApi：高雄交通資料 API 專案 | [作品](HomeWorks/期末作業/C112152256/KaohsiungTrafficApi) |
+| C112152258 | [#51](https://github.com/yinchang0626/Nkust-114-2/pull/51) | 已合併 | Tost UI：多模型 AI 影像、影片、3D 與音訊生成介面 | [作品](HomeWorks/期末作業/C112152258/C112152258期末作業) |
+| C112152315 | [#39](https://github.com/yinchang0626/Nkust-114-2/pull/39) | 已合併 | NKUST Plus：高科大校園資訊整合網站 | [作品](https://github.com/wangwesley1125/NKUST_plus) |
+| C112152325 | [#55](https://github.com/yinchang0626/Nkust-114-2/pull/55) | 已合併 | LiveStream Song Rater：直播歌曲即時評分與 SignalR 互動 | [作品](https://github.com/ShigureJishin/NKUST_114-2_Noname) |
+| C112152329 | [#42](https://github.com/yinchang0626/Nkust-114-2/pull/42) | 已合併 | Nkust-114-2-me：Vite 網頁小遊戲，武器、怪物與資源系統 | [作品](https://github.com/louie3s/Nkust-114-2-me) |
+| C112152332 | [#43](https://github.com/yinchang0626/Nkust-114-2/pull/43) | 已合併 | 課程選課管理系統：學生選課、課程管理與學分限制 | [作品](https://github.com/sam66644197/final_assignment1) |
+| C112152334 | [#38](https://github.com/yinchang0626/Nkust-114-2/pull/38) | 已合併 | JobSearchSystem：台灣就業通職缺資料查詢與篩選 | [作品](https://github.com/han-n-n/JobSearchSystem) |
+| C112181152 | [#45](https://github.com/yinchang0626/Nkust-114-2/pull/45) | 已合併 | A-NEW-TAIWANSTOCK-WEB：台股分析網頁 | [作品](https://github.com/slince0823/A-NEW-TAIWANSTOCK-WEB) |
