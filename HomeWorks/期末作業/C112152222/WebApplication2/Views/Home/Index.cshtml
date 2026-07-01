@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "全台即時交通路況查詢系統";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+            <h1 class="display-4 fw-bold">全台即時交通路況查詢系統</h1>
+            <p class="lead text-muted">使用政府開放資料打造生活化交通資訊查詢網頁</p>
+
+            <p class="mt-4">本系統使用政府開放資料「警廣即時路況」作為資料來源，提供事故、阻塞、道路施工、交通障礙、交通管制等即時路況查詢，並可依地區篩選（北部、中部、南部、東部）。</p>
+
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+                <a class="btn btn-primary btn-lg px-4 me-sm-3" role="button" asp-area="" asp-controller="Traffic" asp-action="Index">查看即時交通路況</a>
+                <a class="btn btn-outline-secondary btn-lg px-4" href="#about">了解更多</a>
+            </div>
+
+<script>
+    // 平滑滾動至 #about，並考慮導覽列高度
+    document.addEventListener('DOMContentLoaded', function () {
+        var aboutLink = document.querySelector('a[href="#about"]');
+        if (!aboutLink) return;
+        aboutLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            var target = document.getElementById('about');
+            if (!target) return;
+            var navbar = document.querySelector('.navbar');
+            var offset = navbar ? navbar.offsetHeight + 8 : 0;
+            var targetY = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+            // 更新網址列 hash（不會觸發跳躍）
+            history.pushState(null, '', '#about');
+        });
+    });
+</script>
+
+            <div id="about" class="mt-5 text-start bg-light p-4 rounded">
+                <h5>系統說明</h5>
+                <p class="mb-0">本系統使用政府開放資料「警廣即時路況」作為資料來源。資料包含事故、阻塞、道路施工、交通障礙、交通管制等即時路況事件，系統會將即時路況整理成卡片式網頁並提供地區與事件類型篩選，方便使用者查詢與快速掌握路況。若 API 暫時無法連線，系統才會使用備援資料以避免網頁無法顯示。</p>
+            </div>
+        </div>
+    </div>
+</div>
