@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TrafficAccidentAnalysis/TrafficAccidentAnalysis.csproj" />
+  <Project Path="trafficUI/trafficUI.csproj" Id="b2b42194-ba10-4d83-9ff2-8bf53800c7b5" />
+</Solution>
