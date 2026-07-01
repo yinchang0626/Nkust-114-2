@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "匯入 CSV";
+}
+
+<h2>匯入財報 CSV</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<form asp-action="Import" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label">選擇 CSV 檔案</label>
+        <input type="file" name="csvFile" class="form-control" accept=".csv" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">開始匯入</button>
+    <a asp-action="Index" class="btn btn-secondary">返回列表</a>
+</form>
