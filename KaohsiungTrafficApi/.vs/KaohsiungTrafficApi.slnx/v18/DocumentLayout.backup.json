@@ -1,0 +1,173 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Migrations\\20260421120835_InitTrafficCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KaohsiungTrafficApi\\Migrations\\20260421120835_InitTrafficCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|d:\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|solutionrelative:kaohsiungtrafficapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|d:\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|solutionrelative:kaohsiungtrafficapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|d:\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\controllers\\trafficcameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|solutionrelative:kaohsiungtrafficapi\\controllers\\trafficcameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|d:\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\services\\csvimportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|solutionrelative:kaohsiungtrafficapi\\services\\csvimportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|d:\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\kaohsiungtrafficapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|solutionrelative:kaohsiungtrafficapi\\kaohsiungtrafficapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|d:\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|solutionrelative:kaohsiungtrafficapi\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|d:\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\models\\trafficcameracsvrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|solutionrelative:kaohsiungtrafficapi\\models\\trafficcameracsvrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|d:\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\kaohsiungtrafficapi\\models\\trafficcamerasite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10927BA-A5AA-40D2-B101-303E4994FF49}|KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj|solutionrelative:kaohsiungtrafficapi\\models\\trafficcamerasite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20260421120835_InitTrafficCamera.cs",
+              "DocumentMoniker": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Migrations\\20260421120835_InitTrafficCamera.cs",
+              "RelativeDocumentMoniker": "KaohsiungTrafficApi\\Migrations\\20260421120835_InitTrafficCamera.cs",
+              "ToolTip": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Migrations\\20260421120835_InitTrafficCamera.cs",
+              "RelativeToolTip": "KaohsiungTrafficApi\\Migrations\\20260421120835_InitTrafficCamera.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T12:08:35.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\appsettings.json",
+              "RelativeDocumentMoniker": "KaohsiungTrafficApi\\appsettings.json",
+              "ToolTip": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\appsettings.json",
+              "RelativeToolTip": "KaohsiungTrafficApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-21T11:54:11.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Program.cs",
+              "RelativeDocumentMoniker": "KaohsiungTrafficApi\\Program.cs",
+              "ToolTip": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Program.cs",
+              "RelativeToolTip": "KaohsiungTrafficApi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T11:53:43.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TrafficCameraController.cs",
+              "DocumentMoniker": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Controllers\\TrafficCameraController.cs",
+              "RelativeDocumentMoniker": "KaohsiungTrafficApi\\Controllers\\TrafficCameraController.cs",
+              "ToolTip": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Controllers\\TrafficCameraController.cs",
+              "RelativeToolTip": "KaohsiungTrafficApi\\Controllers\\TrafficCameraController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAwwDAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T11:53:15.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CsvImportService.cs",
+              "DocumentMoniker": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Services\\CsvImportService.cs",
+              "RelativeDocumentMoniker": "KaohsiungTrafficApi\\Services\\CsvImportService.cs",
+              "ToolTip": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Services\\CsvImportService.cs",
+              "RelativeToolTip": "KaohsiungTrafficApi\\Services\\CsvImportService.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAEIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T11:52:22.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "KaohsiungTrafficApi\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "KaohsiungTrafficApi\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T11:51:22.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TrafficCameraCsvRow.cs",
+              "DocumentMoniker": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Models\\TrafficCameraCsvRow.cs",
+              "RelativeDocumentMoniker": "KaohsiungTrafficApi\\Models\\TrafficCameraCsvRow.cs",
+              "ToolTip": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Models\\TrafficCameraCsvRow.cs",
+              "RelativeToolTip": "KaohsiungTrafficApi\\Models\\TrafficCameraCsvRow.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T11:50:34.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TrafficCameraSite.cs",
+              "DocumentMoniker": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Models\\TrafficCameraSite.cs",
+              "RelativeDocumentMoniker": "KaohsiungTrafficApi\\Models\\TrafficCameraSite.cs",
+              "ToolTip": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\Models\\TrafficCameraSite.cs",
+              "RelativeToolTip": "KaohsiungTrafficApi\\Models\\TrafficCameraSite.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T11:49:45.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "KaohsiungTrafficApi",
+              "DocumentMoniker": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj",
+              "RelativeDocumentMoniker": "KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj",
+              "ToolTip": "D:\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj",
+              "RelativeToolTip": "KaohsiungTrafficApi\\KaohsiungTrafficApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-21T11:47:03.62Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
