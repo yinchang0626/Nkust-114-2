@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全臺電力供需與綠能發電即時看板</title>
+  <style>
+    /* ==========================================
+       1. 網頁視覺美化 (CSS) - 與 YouBike 藍白風格完全不同
+       ========================================== */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft JhengHei", Arial, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    header {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f8fafc;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-bottom: 4px solid #10b981;
+    }
+    .student-info {
+      font-size: 18px; color: #94a3b8; font-weight: normal; margin-top: 5px;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 20px; }
+    .panel {
+      background: white; border-radius: 16px; padding: 20px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 20px;
+    }
+    .controls {
+      display: grid; grid-template-columns: 1.2fr 1fr 1.2fr auto auto; gap: 12px; align-items: end;
+    }
+    .control-group label { display: block; font-weight: bold; margin-bottom: 6px; font-size: 14px; color: #475569; }
+    input, select, button { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 14px; }
+    button { cursor: pointer; border: none; font-weight: bold; transition: all 0.2s; }
+    .btn-primary { background: #10b981; color: white; }
+    .btn-secondary { background: #e2e8f0; color: #334155; }
+    button:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px; }
+    .stat-card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-top: 4px solid #3b82f6;}
+    .stat-card:nth-child(3) { border-top-color: #10b981; } 
+    .stat-card h3 { margin: 0; font-size: 14px; color: #64748b; }
+    .stat-card p { margin: 8px 0 0 0; font-size: 24px; font-weight: 800; color: #1e293b; }
+
+    .meta { display: flex; justify-content: space-between; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+    .tag { background: #f1f5f9; color: #475569; border-radius: 20px; padding: 6px 12px; font-size: 12px; font-weight: bold; }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .station-card { background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); border-left: 6px solid #cbd5e1; position: relative; }
+
+    /* 機組狀態分色 */
+    .station-card.green-energy { border-left-color: #10b981; } 
+    .station-card.thermal-energy { border-left-color: #f97316; } 
+    .station-card.other-energy { border-left-color: #3b82f6; } 
+
+    .station-card h3 { margin: 0 0 4px 0; font-size: 18px; color: #0f172a; }
+    .pill { display: inline-block; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: bold; margin-right: 5px; margin-top: 6px;}
+    .pill.pwr { background: #eff6ff; color: #1d4ed8; }
+    .pill.ratio { background: #f0fdf4; color: #166534; }
+
+    /* 多媒體加分項：動態進度條橫條 */
+    .progress-bar-bg { background: #e2e8f0; width: 100%; height: 6px; border-radius: 3px; margin-top: 12px; overflow: hidden; }
+    .progress-bar { background: #10b981; height: 100%; width: 0%; transition: width 0.5s ease-out; }
+
+    .empty { text-align: center; padding: 40px; color: #64748b; width: 100%; grid-column: 1 / -1; }
+    footer { text-align: center; color: #94a3b8; font-size: 14px; padding: 35px 0; }
+
+    @media (max-width: 1100px) {
+      .controls { grid-template-columns: 1fr 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .controls, .stats, .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>多媒體系統作業</h1>
+    <h1>全臺電力供需與綠能發電即時看板</h1>
+    <h2 class="student-info">學生：陳德憲</h2>
+    <p>串接台灣電力公司即時開放資料，動態分析全臺各電廠機組發電量、綠能佔比與發電效率排序。</p>
+  </header>
+
+  <div class="container">
+    <div class="panel">
+      <div class="controls">
+        <div class="control-group">
+          <label for="keyword">搜尋電廠 / 機組名稱</label>
+          <input id="keyword" type="text" placeholder="例如：大潭、台中、石門、太陽能">
+        </div>
+        <div class="control-group">
+          <label for="energyType">能源類別</label>
+          <select id="energyType">
+            <option value="">全部能源</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="sortBy">排序方式</label>
+          <select id="sortBy">
+            <option value="ratio">發電率（高到低）</option>
+            <option value="pwr">當前發電量（高到低）</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>&nbsp;</label>
+          <button class="btn-primary" id="refreshBtn">更新電力數據</button>
+        </div>
+        <div class="control-group">
+          <label>&nbsp;</label>
+          <button class="btn-secondary" id="resetBtn">初始化重設</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <h3>運作中機組總數</h3>
+        <p id="totalUnits">-</p>
+      </div>
+      <div class="stat-card">
+        <h3>全臺總發電量</h3>
+        <p id="totalPower">-</p>
+      </div>
+      <div class="stat-card">
+        <h3>綠能總發電 (水/風/光)</h3>
+        <p id="greenPower">-</p>
+      </div>
+      <div class="stat-card">
+        <h3>台電數據更新時間</h3>
+        <p id="lastUpdate" style="font-size:16px;">-</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="meta">
+        <div class="tag" id="resultInfo">正在向台電獲取即時數據...</div>
+        <div class="tag" style="background: #f0fdf4; color: #166534;">數據來源：台灣電力公司 Open Data</div>
+      </div>
+      <div id="dataGrid" class="grid"></div>
+      <div id="emptyState" class="empty" style="display:none;">找不到符合條件的發電機組。</div>
+    </div>
+
+    <footer>
+      期中作業：政府開放資料互動介面<br>
+      資料集：台灣電力公司各機組即時發電量
+    </footer>
+  </div>
+
+  <script>
+    const API_URL = "https://open.taipower.com.tw/opendata/opendata/attribute/gb/zh-tw/001.json";
+    let allData = [];
+
+    const keywordEl = document.getElementById("keyword");
+    const energyTypeEl = document.getElementById("energyType");
+    const sortByEl = document.getElementById("sortBy");
+    const refreshBtn = document.getElementById("refreshBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const gridEl = document.getElementById("dataGrid");
+    const emptyEl = document.getElementById("emptyState");
+    const resultInfoEl = document.getElementById("resultInfo");
+
+    function safeNum(val) {
+      const n = Number(val);
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function isGreenEnergy(type) {
+      const greenTypes = ["水力", "風力", "太陽能", "光電"];
+      return greenTypes.some(g => type.includes(g));
+    }
+
+    function isThermalEnergy(type) {
+      const thermalTypes = ["火力", "燃煤", "燃氣", "燃油", "複循環"];
+      return thermalTypes.some(t => type.includes(t));
+    }
+
+    async function loadData() {
+      resultInfoEl.textContent = "正在連線至台灣電力公司獲取即時數據...";
+      try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error("台電伺服器連線失敗");
+        const data = await response.json();
+        
+        allData = Array.isArray(data) ? data : (data.aaData || []);
+        
+        renderTypeOptions(allData);
+        applyFilters();
+      } catch (error) {
+        resultInfoEl.textContent = "無法獲取即時電力數據，請檢查網路連線。";
+        console.error(error);
+      }
+    }
+
+    function renderTypeOptions(data) {
+      const types = [...new Set(data.map(item => item.type || item.key || "其他"))].filter(Boolean);
+      energyTypeEl.innerHTML = '<option value="">全部能源類別</option>';
+      types.forEach(t => {
+        const opt = document.createElement("option");
+        opt.value = t;
+        opt.textContent = t;
+        energyTypeEl.appendChild(opt);
+      });
+    }
+
+    function applyFilters() {
+      const keyword = keywordEl.value.trim().toLowerCase();
+      const selectedType = energyTypeEl.value;
+      const sortBy = sortByEl.value;
+
+      let filtered = allData.filter(item => {
+        const plantName = (item.location || "").toLowerCase();
+        const unitName = (item.name || "").toLowerCase();
+        const typeName = (item.type || "").toLowerCase();
+        
+        const matchesKeyword = !keyword || plantName.includes(keyword) || unitName.includes(keyword) || typeName.includes(keyword);
+        const matchesType = !selectedType || item.type === selectedType;
+        
+        return matchesKeyword && matchesType;
+      });
+
+      filtered.sort((a, b) => {
+        const aPwr = safeNum(a.msg);
+        const bPwr = safeNum(b.msg);
+        const aCap = safeNum(a.msw) || 1;
+        const bCap = safeNum(b.msw) || 1;
+        const aRatio = aPwr / aCap;
+        const bRatio = bPwr / bCap;
+
+        if (sortBy === "pwr") return bPwr - aPwr; 
+        if (sortBy === "ratio") return bRatio - aRatio; 
+        return 0;
+      });
+
+      updateStats(filtered);
+      renderCards(filtered);
+    }
+
+    function updateStats(data) {
+      if (data.length === 0) {
+        document.getElementById("totalUnits").textContent = "0";
+        document.getElementById("totalPower").textContent = "0 MW";
+        document.getElementById("greenPower").textContent = "0 MW";
+        return;
+      }
+
+      const totalUnits = data.length;
+      const totalPower = allData.reduce((sum, item) => sum + safeNum(item.msg), 0);
+      const greenPower = allData.filter(item => isGreenEnergy(item.type || "")).reduce((sum, item) => sum + safeNum(item.msg), 0);
+      const time = allData[0]?.time || new Date().toLocaleTimeString();
+
+      document.getElementById("totalUnits").textContent = totalUnits;
+      document.getElementById("totalPower").textContent = totalPower.toLocaleString() + " MW";
+      document.getElementById("greenPower").textContent = greenPower.toLocaleString() + " MW";
+      document.getElementById("lastUpdate").textContent = time;
+      
+      resultInfoEl.textContent = `當前篩選顯示 ${totalUnits} 組電力機組`;
+    }
+
+    function renderCards(data) {
+      gridEl.innerHTML = "";
+      
+      if (data.length === 0) {
+        emptyEl.style.display = "block";
+        return;
+      }
+      emptyEl.style.display = "none";
+
+      data.forEach(item => {
+        const pwr = safeNum(item.msg); 
+        const cap = safeNum(item.msw); 
+        const ratio = cap > 0 ? Math.min(Math.round((pwr / cap) * 100), 100) : 0; 
+        const type = item.type || "其他";
+        
+        let energyClass = "other-energy";
+        if (isGreenEnergy(type)) energyClass = "green-energy";
+        else if (isThermalEnergy(type)) energyClass = "thermal-energy";
+
+        const card = document.createElement("div");
+        card.className = `station-card ${energyClass}`;
+        card.innerHTML = `
+          <h3>${item.location || "未註明電廠"} - ${item.name || "未知機組"}</h3>
+          <div style="color: #64748b; font-size:13px; margin-top: 4px;">能源分類：${type}</div>
+          <div>
+            <span class="pill pwr">目前發電：${pwr} MW</span>
+            <span class="pill ratio">發電率：${ratio}%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar" style="width: ${ratio}%;"></div>
+          </div>
+        `;
+        gridEl.appendChild(card);
+      });
+    }
+
+    keywordEl.addEventListener("input", applyFilters);
+    energyTypeEl.addEventListener("change", applyFilters);
+    sortByEl.addEventListener("change", applyFilters);
+    refreshBtn.addEventListener("click", loadData);
+    resetBtn.addEventListener("click", () => {
+      keywordEl.value = "";
+      energyTypeEl.value = "";
+      sortByEl.value = "ratio";
+      applyFilters();
+    });
+
+    loadData();
+  </script>
+</body>
+</html>
